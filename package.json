@@ -1,0 +1,28 @@
+{
+  "name": "god_gamer",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "lint-fix": "eslint --fix .",
+    "lint": "eslint .",
+    "test": "mocha --recursive",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.40.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-mocha": "^10.1.0",
+    "husky": "^8.0.3",
+    "mocha": "^10.2.0"
+  }
+}

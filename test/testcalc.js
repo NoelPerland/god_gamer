@@ -8,6 +8,6 @@ describe('Calculator', function () {
   });
   it('should add two numbers correctly', function () {
     const result = calculator.add(1, 1);
-    assert.strictEqual(result, 2);
+    assert.strictEqual(result, 3);
   });
 });

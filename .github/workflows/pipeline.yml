@@ -1,0 +1,33 @@
+name: gamerflow
+
+on:
+  push:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  echo_branch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: step_One
+        run: "echo Branch: master"
+
+  check_unit_test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
+
+      - name: Install Packages
+        run: npm install
+
+      - name: Run Unit Tests and Supertest
+        run: npm run test
+
+      - name: Run ESLint
+        run: npm run lint

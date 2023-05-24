@@ -1,0 +1,41 @@
+name: fakedeploy
+
+on:
+  push:
+    
+jobs:
+  deploy_test_server:
+    runs-on: ubuntu-latest
+    if: ${{ github.ref != 'refs/heads/master' }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+        
+      - name: Installing Dependencies
+        run: 'npm i'
+
+      - name: Set Env to Development
+        run: 'set NODE_ENV=development'
+
+      - name: Print Deploy Message
+        run: "echo now deploying branch: ${{ github.ref }} to the test server"
+
+  deploy_production:
+    runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/master' }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+        
+      - name: Installs Dependencies
+        run: 'npm i'
+
+      - name: Set Env to Production
+        run: 'set NODE_ENV=production'
+        
+      - name: Print Deploy Message
+        run: "echo now deploying to production" 
